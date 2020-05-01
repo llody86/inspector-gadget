@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/inspector-gadget/static/css/main.88b221f4.chunk.css",
-    "main.js": "/inspector-gadget/static/js/main.0f3fde91.chunk.js",
-    "main.js.map": "/inspector-gadget/static/js/main.0f3fde91.chunk.js.map",
-    "runtime-main.js": "/inspector-gadget/static/js/runtime-main.e2e43bf4.js",
-    "runtime-main.js.map": "/inspector-gadget/static/js/runtime-main.e2e43bf4.js.map",
-    "static/js/2.cd9456a0.chunk.js": "/inspector-gadget/static/js/2.cd9456a0.chunk.js",
-    "static/js/2.cd9456a0.chunk.js.map": "/inspector-gadget/static/js/2.cd9456a0.chunk.js.map",
-    "index.html": "/inspector-gadget/index.html",
-    "precache-manifest.5d25f8e1514397b537d130675750d0e0.js": "/inspector-gadget/precache-manifest.5d25f8e1514397b537d130675750d0e0.js",
-    "service-worker.js": "/inspector-gadget/service-worker.js",
-    "static/css/main.88b221f4.chunk.css.map": "/inspector-gadget/static/css/main.88b221f4.chunk.css.map",
-    "static/js/2.cd9456a0.chunk.js.LICENSE.txt": "/inspector-gadget/static/js/2.cd9456a0.chunk.js.LICENSE.txt"
+    "main.css": "/inspector-gadget/build/static/css/main.88b221f4.chunk.css",
+    "main.js": "/inspector-gadget/build/static/js/main.909891d7.chunk.js",
+    "main.js.map": "/inspector-gadget/build/static/js/main.909891d7.chunk.js.map",
+    "runtime-main.js": "/inspector-gadget/build/static/js/runtime-main.4458c5e1.js",
+    "runtime-main.js.map": "/inspector-gadget/build/static/js/runtime-main.4458c5e1.js.map",
+    "static/js/2.089bd3f7.chunk.js": "/inspector-gadget/build/static/js/2.089bd3f7.chunk.js",
+    "static/js/2.089bd3f7.chunk.js.map": "/inspector-gadget/build/static/js/2.089bd3f7.chunk.js.map",
+    "index.html": "/inspector-gadget/build/index.html",
+    "precache-manifest.8a0a33c46af7c2b093731948316ef444.js": "/inspector-gadget/build/precache-manifest.8a0a33c46af7c2b093731948316ef444.js",
+    "service-worker.js": "/inspector-gadget/build/service-worker.js",
+    "static/css/main.88b221f4.chunk.css.map": "/inspector-gadget/build/static/css/main.88b221f4.chunk.css.map",
+    "static/js/2.089bd3f7.chunk.js.LICENSE.txt": "/inspector-gadget/build/static/js/2.089bd3f7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.e2e43bf4.js",
-    "static/js/2.cd9456a0.chunk.js",
+    "static/js/runtime-main.4458c5e1.js",
+    "static/js/2.089bd3f7.chunk.js",
     "static/css/main.88b221f4.chunk.css",
-    "static/js/main.0f3fde91.chunk.js"
+    "static/js/main.909891d7.chunk.js"
   ]
 }
