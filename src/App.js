@@ -1,11 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSyncAlt, faChevronCircleRight, faChevronCircleLeft, faCheckCircle, faInfo } from "@fortawesome/free-solid-svg-icons";
 import Scene from "./components/Scene/Scene";
-import { AudioPlayerContext, AudioPlayerProvider } from "./context/AudioPlayerContext";
 import Panel from "./components/Panel/Panel"
 import InteractiveObject from './components/InteractiveObject/InteractiveObject';
 import Message from './components/Message/Message';
@@ -66,61 +65,47 @@ const AppAlertMessage = styled.p`
   font-size: 2rem;
 `
 
-const InfoContainer = styled.div`
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  height: 100%;
-  background-colour: #111b32;
-  border-radius: 10px;
-  color: white;
-`
-
-const AbsoluteContainer = styled.div`
-  width:100%;
+const StyledLogo = styled.img`
+  width: 100%;
   height:100%;
-  position: absolute;
-  z-index: ${props => props.zindex};
-  justify-content: center;
-  align-items: center;
-  display: ${props => props.isVisible ? "flex" : "none"};
 `;
 
 
 function App() {
-  // const [state, setState] = useContext(AudioPlayerContext);//TODO: AUDIO
   const [selectedCharacter, setSelectedCharacter] = useState({}); //The string/path for the selected character image.
   const [currentSceneId, setCurrentSceneId] = useState(0); //Used to denote the scene by its' ID.
   const [viewingObject, setViewingObject] = useState(false); //Used to tell if there is an object being viewed, show viewing panel.
   const [selectedObject, setSelectedObject] = useState(0); //The ACTUAL object being viewed.
+  const [currentQuestionId, setCurrentQuestionId] = useState(0); //QuestionId to get from questionslist.
 
   const charactersList = [
       {
         img: "./assets/images/People-01.svg",
         name: "Lloyd",
         prof: "Doctor",
+        gender: "m",
         position: {x:"0px", y:"40px"}
       },
       {
         img: "./assets/images/People-02.svg",
         name: "Jane",
         prof: "Nurse",
-        position: {x:"0px", y:"35px"}
+        gender: "f",
+        position: {x:"0px", y:"30px"}
       },
       {
         img: "./assets/images/People-03.svg",
         name: "Sara",
         prof: "Doctor",
-        position: {x:"0px", y:"30px"}
+        gender: "f",
+        position: {x:"0px", y:"25px"}
       },
       {
         img: "./assets/images/People-04.svg",
         name: "Kayleigh",
         prof: "Nurse",
-        position: {x:"0px", y:"20px"}
+        gender: "f",
+        position: {x:"0px", y:"10px"}
       }
     ];
 
@@ -128,65 +113,58 @@ function App() {
     {
       name: "Kit Bag",
       img: "./assets/images/DrBag.svg",
-      position: {x: "80px", y: "300px"},
+      position: {x: "29px", y: "215px"},
       width: "80px",
       id: 0
     },
     {
       name: "Medicine",
       img: "./assets/images/Medicine.svg",
-      position: {x: "690px", y: "147px"},
+      position: {x: "710px", y: "57px"},
       width: "20px",
       id: 1
     },
     {
       name: "Microscope",
       img: "./assets/images/Microscope.svg",
-      position: {x: "690px", y: "185px"},
-      width: "40px",
+      position: {x: "569px", y: "109px"},
+      width: "34px",
       id: 2
     },
     {
       name: "Stethoscope",
       img: "./assets/images/Stethoscope.svg",
-      position: {x: "600px", y: "230px"},
+      position: {x: "640px", y: "149px"},
       width: "70px",
       id: 3
     },
     {
       name: "Syringe",
       img: "./assets/images/Syringe.svg",
-      position: {x: "410px", y: "232px"},
+      position: {x: "500px", y: "144px"},
       width: "50px",
       id: 4
     },
     {
       name: "Test Tubes",
       img: "./assets/images/TestTubes.svg",
-      position: {x: "630px", y: "110px"},
+      position: {x: "636px", y: "17px"},
       width: "30px",
       id: 5
     },
     {
       name: "Thermometer",
       img: "./assets/images/Thermometer.svg",
-      position: {x: "420px", y: "276px"},
+      position: {x: "407px", y: "193px"},
       width: "60px",
       id: 6
     },
     {
-      name: "Clock",
-      img: "./assets/images/Clock.svg",
-      position: {x: "420px", y: "50px"},
-      width: "100px",
-      id: 7
-    },
-    {
       name: "Plaster",
       img: "./assets/images/Plaster.svg",
-      position: {x: "0px", y: "0px"},
+      position: {x: "420px", y: "145px"},
       width: "20px",
-      id: 8
+      id: 7
     }
   ];
 
@@ -197,23 +175,29 @@ function App() {
       model: "./assets/models/stethescope.gltf",
       hotspots: [
         {
-          name: "fact-0",
-          position: "1 1 0.5",
+          id: 0,
+          name: "fact",
+          position: "3.677384827359253m -0.2472029312234838m 8.890203554547575m",
+          normal: "0.08766884984280378m -0.9438745001877323m 0.318457376524078m",
+          text: "The word stethoscope is actually a Greek word that simply means 'I see the chest'",
+          audio: "audio track to play here"
+        },
+        {
+          id: 1,
+          name: "fact",
+          position: "1.2183017240716496m 0.3070601693620567m -6.646682736388396m",
+          normal: "0.5838613128714414m 0.731809499772719m 0.35151219520016597m",
           text: "This is made from 100% bullshit",
           audio: "audio track to play here"
         },
         {
-          name: "fact-1",
-          position:"1 1 0.5",
-          text: "This is some more text",
+          id: 2,
+          name: "fact",
+          position: "10.107813664801204m -0.43046056471759186m 13.99390251610063m",
+          normal: "-0.09713558713884479m 0.9944575583593681m -0.040234839792345996m",
+          text: "This is made from 100% bullshit",
           audio: "audio track to play here"
-        },
-        {
-          name: "fact-2",
-          position: "1 1 0.5",
-          text: "This is some different text",
-          audio: "audio track to play here"
-        },
+        }
       ]
     },
     {
@@ -238,11 +222,32 @@ function App() {
         },
       ]
     }
+  ];
+
+  const successText = "Correct!";
+  const failText = "Incorrect.";
+
+  const questionsList = [
+    {
+      id: 0,
+      questionText: `Listen to your heart-beat?`,
+      answerText: `A Stethoscope can help ${selectedCharacter.prof} ${selectedCharacter.name} hear your heart-beat.`
+    },
+    {
+      id: 1,
+      questionText: `Cover an open wound or cut?`,
+      answerText: `A Plaster is used to keep an open wound clean and safe.`
+    },
+    {
+      id: 2,
+      questionText: `Look in your ears?`,
+      answerText: `bla blah blah`
+    }
   ]
   
   const selectCharacter = (charObject) => {
     setSelectedCharacter(charObject);
-    setCurrentSceneId(1);
+    setCurrentSceneId(2);
   }
 
   const getCurrentScene = () => {
@@ -252,22 +257,27 @@ function App() {
   const selectObject = (objectId) => {
     setSelectedObject(objectId);
     setViewingObject(true);
+    setCurrentSceneId(4);
   }
 
   const getSelectedObject = () => {
     return modelsList.find(model => model.id === selectedObject.id);
   }
 
+  const getCurrentQuestion = () => {
+    return questionsList[currentQuestionId];
+  }
+
   const IntroScene = (props) => {
    return(
      <Scene id={props.Id} isActive={true} sceneColour={"#00A8A9"}>
-      <Panel isVisible={true} width="80%" height="60%">
+      <Panel isVisible={true} width="80%" height="70%">
         {charactersList.map((char, index) => 
-          <InteractiveObject key={index} objID={index} onClick={()=>{selectCharacter(char)}} imgSrc={char.img} width={"15%"} height={"auto"} xpos={10+(22*index)+"%"} ypos={char.position.y}/>
+          <InteractiveObject key={index} objID={index} onClick={()=>{selectCharacter(char)}} imgSrc={char.img} width={"19%"} height={"auto"} xpos={8+(22*index)+"%"} ypos={char.position.y}/>
         )}
       </Panel>
-      <Panel isVisible={true} bgColour={"#0C2A49"} height={"20%"} width={"90%"}>
-        <Message messageText={getCurrentScene().messageText}/>
+      <Panel marginRect={"-30px 0 0 0"} isVisible={true} bgColour={"#0C2A49"} height={"14%"} width={"70%"}>
+        <Message fontSize={"medium"} messageText={getCurrentScene().messageText}/>
       </Panel>
     </Scene>
    )
@@ -281,15 +291,12 @@ function App() {
             <StaticObject key={index} imgSrc={obj.img} width={obj.width} height={"auto"} xpos={obj.position.x} ypos={obj.position.y}/>
           )}
         </StaticGroup>
-        <StaticGroup width={"100%"} height={"100%"} xpos={"0px"} ypos={"0px"} zindex={"0"}>
-          <StaticObject imgSrc={"./assets/images/BlockBackground-01-01.svg"} width={"1920px"} height={"100%"} xpos={"-200px"} ypos={"0px"} zindex={"0"}/>
-          <StaticObject imgSrc={"./assets/images/DetailBackground-01.svg"} width={"100%"} height={"100%"} xpos={"0px"} ypos={"40px"} zindex={"0"}/>
-        </StaticGroup>
+        <StaticObject imgSrc={"./assets/images/Background-01.svg"} width={"100%"} height={"100%"} xpos={"0px"} ypos={"0px"} zindex={"0"}/>
         <Panel isVisible={true} bgColour={"#0C2A49"} height={"20%"} width={"90%"} marginRect={"40% 0 0 0"}>
           <Message fontSize={"medium"} messageText={getCurrentScene().messageText}/>
-          <IconButton icon={"chevron-circle-right"} marginRect={"0 0 0 10px"} onClick={() => {setCurrentSceneId(2)}}/>
+          <IconButton icon={"chevron-circle-right"} marginRect={"0 0 0 10px"} onClick={() => {setCurrentSceneId(3)}}/>
         </Panel>
-        <StaticObject zindex={20} imgSrc={selectedCharacter.img} width={"100%"} height={"100%"} xpos={"40%"} ypos={"90px"}/>
+        <StaticObject zindex={20} imgSrc={selectedCharacter.img} width={"30%"} height={"100%"} xpos={"-8px"} ypos={"90px"}/>
       </>
     )
   }
@@ -298,43 +305,75 @@ function App() {
   const FindScene = () => {
     return (
       <>
-        <StaticGroup width={"100%"} height={"100%"} xpos={"0px"} ypos={"0px"} zindex={"1"}>
-          {objectsList.map((obj, index) => 
-            <InteractiveObject onClick={() => selectObject(obj.id)} key={index} imgSrc={obj.img} width={obj.width} height={"auto"} xpos={obj.position.x} ypos={obj.position.y}/>
-          )}
-        </StaticGroup>
-        <StaticGroup width={"100%"} height={"100%"} xpos={"0px"} ypos={"0px"} zindex={"0"}>
-          <StaticObject imgSrc={"./assets/images/BlockBackground-01-01.svg"} width={"1920px"} height={"100%"} xpos={"-200px"} ypos={"0px"} zindex={"0"}/>
-          <StaticObject imgSrc={"./assets/images/DetailBackground-01.svg"} width={"100%"} height={"100%"} xpos={"0px"} ypos={"40px"} zindex={"0"}/>
-        </StaticGroup>
-        <Panel isVisible={!viewingObject} bgColour={"#0C2A49"} height={"20%"} width={"90%"} marginRect={"40% 0 0 0"}>
-          <Message fontSize={"medium"} messageText={getCurrentScene().messageText}/>
+        {objectsList.map((obj, index) => 
+          <InteractiveObject onClick={() => selectObject(obj.id)} key={index} imgSrc={obj.img} width={obj.width} height={"auto"} xpos={obj.position.x} ypos={obj.position.y} zindex={"1"}/>
+        )}
+        <StaticObject imgSrc={"./assets/images/Background-01.svg"} width={"100%"} height={"100%"} xpos={"0px"} ypos={"0px"} zindex={"0"}/>
+        <Panel direction={"column"} isVisible={!viewingObject} bgColour={"#0C2A49"} height={"20%"} width={"90%"} marginRect={"40% 0 0 0"}>
+          <Message fontSize={"small"} messageText={getCurrentScene().messageText}/>
+          <Message bold={true} fontSize={"medium"} messageText={getCurrentQuestion().questionText}/>
         </Panel>
+        <StaticObject isVisible={!viewingObject} zindex={20} imgSrc={selectedCharacter.img} width={"30%"} height={"100%"} xpos={"-8px"} ypos={"90px"}/>
       </>
     )
+  }
+
+  const LogoScene = () => {
+    return (
+      <StyledLogo onClick={()=> {
+        setCurrentSceneId(1);
+      }} src="./assets/images/DrWhatJnr_Intro-01.jpg" />
+    );
+  }
+
+  const SuccessScene = () => {
+    return (
+      <>
+        <Panel width={"90%"} height={"80%"} isVisible={true}>
+          <ModelViewerObject hotspots={modelsList[0].hotspots}/>
+        </Panel>
+        <Panel pointerNone={true} direction={"column"} isVisible={true} bgColour={"#0C2A49"} height={"20%"} width={"75%"} marginRect={"-80px 0 0 0"} >
+          <Message messageText={successText} bold={true} textColour={"#64C9C9"} />
+          <Message messageText={getCurrentQuestion().answerText} fontSize={"small"}/>
+        </Panel>
+      </>
+    );
   }
 
 
   const scenesList = [
     {
+      sceneContent: <LogoScene/>,
+      sceneColour: "#0C2A49",
+      sceneId: 0,
+      messageText: "Who would you like to help today?"
+    },
+    {
       sceneContent: <IntroScene/>,
       sceneColour: "#00A8A9",
-      sceneId: 0,
+      sceneId: 1,
       messageText: "Who would you like to help today?"
     },
     {
       sceneContent: <DoctorScene/>,
       sceneColour: "#0C2A49",
-      sceneId: 1,
-      messageText: `${selectedCharacter.prof} ${selectedCharacter.name} needs some help to find their equipment.`
+      sceneId: 2,
+      messageText: `Let's help ${selectedCharacter.prof} ${selectedCharacter.name}!`
     },
     {
       sceneContent: <FindScene/>,
       sceneColour: "#0C2A49",
-      sceneId: 2,
-      messageText: `Can you find something that ${selectedCharacter.name} would use to listen to your heart-beat?`
+      sceneId: 3,
+      messageText: `Can you find something that ${selectedCharacter.prof} ${selectedCharacter.name} would use to `,
+    },
+    {
+      sceneContent: <SuccessScene/>,
+      sceneColour: "#3ABBBB",
+      sceneId: 4
     }
   ];
+
+  
 
   return (
     <AppContainer className="App">
@@ -344,21 +383,11 @@ function App() {
         <AppAlertMessage>Please rotate your device - this experience requires landscape</AppAlertMessage>
       </AppAlertMessageContainer>
       <DisplayInLandscapeOnly>
-        <AudioPlayerProvider>
-            {scenesList.map((scene, index) =>
-              <Scene key={index} sceneColour={scene.sceneColour} Id={scene.sceneId} isActive={currentSceneId === scene.sceneId}>
-                {scene.sceneContent}
-              </Scene>
-            )}
-            <AbsoluteContainer zindex={1} isVisible={viewingObject}>
-              <Panel width={"90%"} height={"90%"} isVisible={true}>
-                <ModelViewerObject />
-              </Panel>
-            </AbsoluteContainer>
-          </AudioPlayerProvider>
-            {/*<model-viewer background-color="#70BCD1" src="./assets/models/Astronaut.glb" alt="A 3D model of an astronaut" auto-rotate ar camera-controls></model-viewer>
-            <model-viewer src="./assets/models/bandaid.gltf" auto-rotate ar camera-controls alt="A 3D model of a damaged sci-fi helmet"></model-viewer>
-            <model-viewer src="./assets/models/stethescope.gltf" auto-rotate ar camera-controls alt="A 3D model of a damaged sci-fi helmet"></model-viewer>*/}
+        {scenesList.map((scene, index) =>
+          <Scene key={index} sceneColour={scene.sceneColour} Id={scene.sceneId} isActive={currentSceneId === scene.sceneId}>
+            {scene.sceneContent}
+          </Scene>
+        )}
       </DisplayInLandscapeOnly>
       </AppHeader>
     </AppContainer>

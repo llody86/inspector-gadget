@@ -8,5 +8,5 @@ export const SceneContainer = styled.div`
     display: ${props => props.isActive ? "flex" : "none"};
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: ${props => props.align ? props.align : "center"};
 `;

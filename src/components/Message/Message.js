@@ -3,7 +3,7 @@ import * as Styled from "./styled";
 
 const Message = (props) => {
     return (
-        <Styled.MessageText fontSize={props.fontSize}>{props.messageText}</Styled.MessageText>
+        <Styled.MessageText textColour={props.textColour} bold={props.bold} fontSize={props.fontSize}>{props.messageText}</Styled.MessageText>
     )
 }
 

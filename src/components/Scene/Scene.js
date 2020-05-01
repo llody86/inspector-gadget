@@ -28,7 +28,7 @@ const Scene = (props) => {
     }
 
     return (
-        <Styled.SceneContainer isActive={props.isActive} colour={props.sceneColour ? props.sceneColour : "transparent"}>
+        <Styled.SceneContainer align={props.align} isActive={props.isActive} colour={props.sceneColour ? props.sceneColour : "transparent"}>
             {props.children}
             {//TODO: Add a track list
             }
