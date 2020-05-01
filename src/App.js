@@ -179,7 +179,7 @@ function App() {
           name: "fact",
           position: "3.677384827359253m -0.2472029312234838m 8.890203554547575m",
           normal: "0.08766884984280378m -0.9438745001877323m 0.318457376524078m",
-          text: "The word stethoscope is actually a Greek word that simply means 'I see the chest'",
+          text: `The word stethoscope is actually a Greek word that simply means "I see the chest"`,
           audio: "audio track to play here"
         },
         {
@@ -187,7 +187,7 @@ function App() {
           name: "fact",
           position: "1.2183017240716496m 0.3070601693620567m -6.646682736388396m",
           normal: "0.5838613128714414m 0.731809499772719m 0.35151219520016597m",
-          text: "This is made from 100% bullshit",
+          text: "The very first Stethoscope was a monaural device, meaning it was used with just one ear.",
           audio: "audio track to play here"
         },
         {
@@ -195,7 +195,7 @@ function App() {
           name: "fact",
           position: "10.107813664801204m -0.43046056471759186m 13.99390251610063m",
           normal: "-0.09713558713884479m 0.9944575583593681m -0.040234839792345996m",
-          text: "This is made from 100% bullshit",
+          text: "The original use of the Stethoscope was simply to determine if someone was dead or not!",
           audio: "audio track to play here"
         }
       ]
