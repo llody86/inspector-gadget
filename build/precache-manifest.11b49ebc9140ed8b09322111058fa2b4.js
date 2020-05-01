@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "524d3faa101af4f0864eb7423670cacb",
+    "revision": "5bb931cb0832aefd886764a7b778b3b4",
     "url": "/inspector-gadget/build/index.html"
   },
   {
-    "revision": "a033acb3e5618ca2ab0b",
+    "revision": "2e335370687ee7b49624",
     "url": "/inspector-gadget/build/static/css/main.88b221f4.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/inspector-gadget/build/static/js/2.089bd3f7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a033acb3e5618ca2ab0b",
-    "url": "/inspector-gadget/build/static/js/main.909891d7.chunk.js"
+    "revision": "2e335370687ee7b49624",
+    "url": "/inspector-gadget/build/static/js/main.36037749.chunk.js"
   },
   {
     "revision": "3e555e4c129037bceb02",

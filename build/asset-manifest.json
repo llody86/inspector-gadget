@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/inspector-gadget/build/static/css/main.88b221f4.chunk.css",
-    "main.js": "/inspector-gadget/build/static/js/main.909891d7.chunk.js",
-    "main.js.map": "/inspector-gadget/build/static/js/main.909891d7.chunk.js.map",
+    "main.js": "/inspector-gadget/build/static/js/main.36037749.chunk.js",
+    "main.js.map": "/inspector-gadget/build/static/js/main.36037749.chunk.js.map",
     "runtime-main.js": "/inspector-gadget/build/static/js/runtime-main.4458c5e1.js",
     "runtime-main.js.map": "/inspector-gadget/build/static/js/runtime-main.4458c5e1.js.map",
     "static/js/2.089bd3f7.chunk.js": "/inspector-gadget/build/static/js/2.089bd3f7.chunk.js",
     "static/js/2.089bd3f7.chunk.js.map": "/inspector-gadget/build/static/js/2.089bd3f7.chunk.js.map",
     "index.html": "/inspector-gadget/build/index.html",
-    "precache-manifest.8a0a33c46af7c2b093731948316ef444.js": "/inspector-gadget/build/precache-manifest.8a0a33c46af7c2b093731948316ef444.js",
+    "precache-manifest.11b49ebc9140ed8b09322111058fa2b4.js": "/inspector-gadget/build/precache-manifest.11b49ebc9140ed8b09322111058fa2b4.js",
     "service-worker.js": "/inspector-gadget/build/service-worker.js",
     "static/css/main.88b221f4.chunk.css.map": "/inspector-gadget/build/static/css/main.88b221f4.chunk.css.map",
     "static/js/2.089bd3f7.chunk.js.LICENSE.txt": "/inspector-gadget/build/static/js/2.089bd3f7.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4458c5e1.js",
     "static/js/2.089bd3f7.chunk.js",
     "static/css/main.88b221f4.chunk.css",
-    "static/js/main.909891d7.chunk.js"
+    "static/js/main.36037749.chunk.js"
   ]
 }
