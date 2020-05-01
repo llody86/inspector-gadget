@@ -80,28 +80,28 @@ function App() {
 
   const charactersList = [
       {
-        img: "./assets/images/People-01.svg",
+        img: "./assets/images/people-01.svg",
         name: "Lloyd",
         prof: "Doctor",
         gender: "m",
         position: {x:"0px", y:"40px"}
       },
       {
-        img: "./assets/images/People-02.svg",
+        img: "./assets/images/people-02.svg",
         name: "Jane",
         prof: "Nurse",
         gender: "f",
         position: {x:"0px", y:"30px"}
       },
       {
-        img: "./assets/images/People-03.svg",
+        img: "./assets/images/people-03.svg",
         name: "Sara",
         prof: "Doctor",
         gender: "f",
         position: {x:"0px", y:"25px"}
       },
       {
-        img: "./assets/images/People-04.svg",
+        img: "./assets/images/people-04.svg",
         name: "Kayleigh",
         prof: "Nurse",
         gender: "f",
