@@ -70,6 +70,15 @@ const StyledLogo = styled.img`
   height:100%;
 `;
 
+const BackButtonContainer = styled.div`
+  position: absolute;
+  top: ${props => props.top};
+  left: ${props => props.left};
+  background-color: #0a2a49;
+  border-radius: 50%;
+  padding: 2px;
+`
+
 
 function App() {
   const [selectedCharacter, setSelectedCharacter] = useState({}); //The string/path for the selected character image.
@@ -231,7 +240,7 @@ function App() {
     {
       id: 0,
       questionText: `Listen to your heart-beat?`,
-      answerText: `A Stethoscope can help ${selectedCharacter.prof} ${selectedCharacter.name} hear your heart-beat.`
+      answerText: `A Stethoscope can help ${selectedCharacter.prof} ${selectedCharacter.name} hear your heartbeat.`
     },
     {
       id: 1,
@@ -266,6 +275,11 @@ function App() {
 
   const getCurrentQuestion = () => {
     return questionsList[currentQuestionId];
+  }
+
+  const goBackToRoom = () => {
+    setCurrentSceneId(3);
+    setViewingObject(false);
   }
 
   const IntroScene = (props) => {
@@ -329,8 +343,11 @@ function App() {
   const SuccessScene = () => {
     return (
       <>
-        <Panel width={"90%"} height={"80%"} isVisible={true}>
+        <Panel width={"90%"} height={"80%"} isVisible={true} direction={"row-reverse"}>
           <ModelViewerObject hotspots={modelsList[0].hotspots}/>
+          <BackButtonContainer top={"43%"} left={"6%"}>
+            <IconButton icon={"chevron-circle-left"} marginRect={"0 0 0 0"} onClick={() => {goBackToRoom()}}/>
+          </BackButtonContainer>
         </Panel>
         <Panel pointerNone={true} direction={"column"} isVisible={true} bgColour={"#0C2A49"} height={"20%"} width={"75%"} marginRect={"-80px 0 0 0"} >
           <Message messageText={successText} bold={true} textColour={"#64C9C9"} />

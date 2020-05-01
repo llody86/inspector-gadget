@@ -21,7 +21,6 @@ const ModelViewerObject = (props) => {
     }, [props.initialHotspot, selectedHotspotId])
 
     const selectHotspot = (hotspotId) => {
-        //TODO: enable hotspot based on Id
         if(selectedHotspotId === hotspotId){
             return;
         }
@@ -36,6 +35,9 @@ const ModelViewerObject = (props) => {
                 {props.hotspots.map((hotspot, index) => 
                     <Styled.Hotspot onClick={() => {selectHotspot(index)}} slot={"hotspot-"+index} className="hotspot" className={selectedHotspotId === hotspot.id ? "hotspot selected" : "hotspot"} data-position={hotspot.position} data-normal={hotspot.normal}><Styled.Annotation>{hotspot.text}</Styled.Annotation></Styled.Hotspot>
                 )}
+                <Styled.ARButton slot="ar-button">
+                    <img src="./assets/images/AR.svg"/>
+                </Styled.ARButton>
             </model-viewer>
         </Styled.Container>
     )

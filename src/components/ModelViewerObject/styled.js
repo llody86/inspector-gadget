@@ -10,7 +10,16 @@ export const Container = styled.div`
     * {
         width: 100%;
         height: 100%;
+        #default-ar-button {
+            top:0px;
+        }   
     }
+    .slot.ar-button {
+        position: absolute;
+        top: -80%;
+    }
+    
+
    
 `;
 
@@ -55,3 +64,13 @@ export const Annotation = styled.div`
     width: 150px;
     height: auto;
 `
+
+export const ARButton = styled.button`
+    background-color: white;
+    border-radius: 4px;
+    border: none;
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 40px;
+    height: 40px;
+`;
